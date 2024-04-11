@@ -1,0 +1,243 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-11 12:48+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\courses\forms.py:16 .\courses\models.py:71
+msgid "Body"
+msgstr "التعليق"
+
+#: .\courses\models.py:10 .\courses\models.py:32 .\courses\models.py:51
+#, fuzzy
+#| msgid "App Name"
+msgid "Name"
+msgstr "مشروعي"
+
+#: .\courses\models.py:11 .\courses\models.py:33 .\courses\models.py:52
+#, fuzzy
+#| msgid "App Name"
+msgid "Name_en"
+msgstr "مشروعي"
+
+#: .\courses\models.py:13
+msgid "Image"
+msgstr "أضف صورة"
+
+#: .\courses\models.py:14
+#, fuzzy
+#| msgid " Price"
+msgid "Price"
+msgstr "السعر"
+
+#: .\courses\models.py:15
+#, fuzzy
+#| msgid "Description"
+msgid "Short_description"
+msgstr "الوصف"
+
+#: .\courses\models.py:16
+#, fuzzy
+#| msgid "Description"
+msgid "Short_description_en"
+msgstr "الوصف"
+
+#: .\courses\models.py:17 .\courses\models.py:53
+#: .\courses\templates\course_detail.html:58
+#: .\courses\templates\course_detail.html:154
+msgid "Description"
+msgstr "الوصف"
+
+#: .\courses\models.py:18 .\courses\models.py:54
+#, fuzzy
+#| msgid "Description"
+msgid "Description_en"
+msgstr "الوصف"
+
+#: .\courses\models.py:19
+msgid "Info"
+msgstr "معلومات"
+
+#: .\courses\models.py:20
+#, fuzzy
+#| msgid "Info"
+msgid "Info_en"
+msgstr "معلومات"
+
+#: .\courses\models.py:27
+#, fuzzy
+#| msgid " Course"
+msgid "Course"
+msgstr "الدورة"
+
+#: .\courses\models.py:28
+#, fuzzy
+#| msgid " Course"
+msgid "Courses"
+msgstr "الدورة"
+
+#: .\courses\models.py:41
+#, fuzzy
+#| msgid "Description"
+msgid "Section"
+msgstr "الوصف"
+
+#: .\courses\models.py:42
+#, fuzzy
+#| msgid "Description"
+msgid "Sections"
+msgstr "الوصف"
+
+#: .\courses\models.py:55
+msgid "Video"
+msgstr "أضف فيديو"
+
+#: .\courses\models.py:63
+#, fuzzy
+#| msgid "lessons"
+msgid "Lesson"
+msgstr "الدروس"
+
+#: .\courses\models.py:64
+#, fuzzy
+#| msgid "lessons"
+msgid "Lessons"
+msgstr "الدروس"
+
+#: .\courses\models.py:81 .\courses\templates\courses\lesson.html:78
+#: .\courses\templates\courses\lesson_comment.html:12
+msgid "Comment"
+msgstr "تعليق"
+
+#: .\courses\models.py:82 .\courses\templates\courses\lesson.html:45
+msgid "Comments"
+msgstr "التعليقات"
+
+#: .\courses\templates\base.html:9 .\courses\templates\partials\header.html:4
+msgid "App Name"
+msgstr "مشروعي"
+
+#: .\courses\templates\checkout-complete.html:5
+msgid "Order Completed"
+msgstr "اكتمل الطلب"
+
+#: .\courses\templates\checkout-complete.html:14
+msgid ""
+"Payment success! you will recieve email with the link of the course you "
+"bought"
+msgstr "تمت عملية الدفع بنجاح! سوف تتلقي رسالة ببريدك الاكتروني بالدورة التي قمت بشرائها"
+
+#: .\courses\templates\checkout-complete.html:17
+msgid "Go to Your Courses"
+msgstr "قائمة الدورات الخاصة بك"
+
+#: .\courses\templates\common\product_card.html:17
+msgid "Add To Cart"
+msgstr "اضافة إلي السلة"
+
+#: .\courses\templates\common\product_card.html:20
+msgid "View"
+msgstr "عرض"
+
+#: .\courses\templates\course_detail.html:72
+#: .\courses\templates\course_detail.html:168
+msgid "History"
+msgstr "تاريخ"
+
+#: .\courses\templates\course_detail.html:214
+msgid "Pay Now"
+msgstr "إدفع الآن"
+
+#: .\courses\templates\courses\lesson.html:55
+msgid "Date"
+msgstr "التاريخ"
+
+#: .\courses\templates\courses\lessons_list.html:13
+#: .\courses\templates\courses\lessons_list.html:29
+#: .\courses\templates\courses\sections.html:13
+#: .\courses\templates\courses\sections.html:30
+#: .\courses\templates\partials\header.html:61
+msgid "My Courses"
+msgstr "دوراتي"
+
+#: .\courses\templates\courses\sections.html:22
+#: .\courses\templates\courses\sections.html:39
+msgid "lessons"
+msgstr "الدروس"
+
+#: .\courses\templates\emails\course.html:50
+msgid "Academy"
+msgstr "الاكاديمية"
+
+#: .\courses\templates\emails\course.html:60
+msgid " Customer"
+msgstr "الزبون"
+
+#: .\courses\templates\emails\course.html:74
+#: .\courses\templates\emails\course.html:130
+msgid " Course"
+msgstr "الدروة"
+
+#: .\courses\templates\emails\course.html:141
+msgid " Price"
+msgstr "السعر"
+
+#: .\courses\templates\emails\course.html:178
+msgid "Total"
+msgstr "الاجمالي"
+
+#: .\courses\templates\notification.html:15
+#: .\courses\templates\notification.html:28
+msgid "mention you in lesson"
+msgstr "أشار اليك في الدرس"
+
+#: .\courses\templates\partials\footer.html:13
+msgid "Arabic"
+msgstr "العربية"
+
+#: .\courses\templates\partials\footer.html:33
+msgid "© 2022 All rights reseerved"
+msgstr "جميع الحقوق محفوظة"
+
+#: .\courses\templates\partials\header.html:29
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: .\courses\templates\partials\header.html:35
+msgid "Log out"
+msgstr "تسجيل الخروج"
+
+#: .\courses\templates\partials\header.html:42
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\courses\templates\partials\header.html:43
+msgid "Register"
+msgstr "التسجيل"
+
+#: .\courses\templates\partials\header.html:66
+msgid "Notification"
+msgstr "التنبيهات"
+
+#: .\courses\templates\partials\header.html:74
+msgid "Blog"
+msgstr "المدونة"
+
+#: .\courses\templates\partials\header_search.html:9
+msgid "Search"
+msgstr "بحث"

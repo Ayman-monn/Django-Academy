@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load my_filter %}
+{% block content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<div class="container my-5">
+  {% if LANGUAGE_CODE == 'ar' %}
+    <section>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-3">
+            <div class="swiper my-auto swiper-course">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="{{ course.image.url }}"
+                    class="img-fluid"
+                    alt="..."
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <h5 class="card-title">{{ course.name }}</h5>
+              <p class="card-text mt-4">
+                {{ course.short_description }}
+              </p>
+              <p class="card-text fs-4">
+                <strong class="text-success mt-3"> {{ course.price | currency }} </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="card">
+        <div class="card-header p-0 bg-white">
+          <ul
+            class="nav nav-pills nav-justified"
+            id="pills-tab"
+            role="tablist"
+          >
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active text-secondary"
+                id="pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-home"
+                type="button"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+              >
+                {% trans 'Description' %}
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link text-secondary"
+                id="pills-profile-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-profile"
+                type="button"
+                role="tab"
+                aria-controls="pills-profile"
+                aria-selected="false"
+              >
+              {% trans 'History' %}
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="pills-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="pills-home"
+              role="tabpanel"
+              aria-labelledby="pills-home-tab"
+            >
+              <p class="fs-6 text-muted">
+                {{ course.description}}
+              </p>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="pills-profile"
+              role="tabpanel"
+              aria-labelledby="pills-contact-tab"
+            >
+              <p class="fs-6 text-muted">
+                {{ course.info }}
+              </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% else %}
+  <section>
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-3">
+          <div class="swiper my-auto swiper-course">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="{{ course.image.url }}"
+                  class="img-fluid"
+                  alt="..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <h5 class="card-title">{{ course.name_en }}</h5>
+            <p class="card-text mt-4">
+              {{ course.short_description_en }}
+            </p>
+            <p class="card-text fs-4">
+              <strong class="text-success mt-3"> {{ course.price | currency }} </strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="card">
+      <div class="card-header p-0 bg-white">
+        <ul
+          class="nav nav-pills nav-justified"
+          id="pills-tab"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active text-secondary"
+              id="pills-home-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-home"
+              type="button"
+              role="tab"
+              aria-controls="pills-home"
+              aria-selected="true"
+            >
+              {% trans 'Description' %}
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link text-secondary"
+              id="pills-profile-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#pills-profile"
+              type="button"
+              role="tab"
+              aria-controls="pills-profile"
+              aria-selected="false"
+            >
+            {% trans 'History' %}
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content" id="pills-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="pills-home"
+            role="tabpanel"
+            aria-labelledby="pills-home-tab"
+          >
+            <p class="fs-6 text-muted">
+              {{ course.description_en }}
+            </p>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="pills-profile"
+            role="tabpanel"
+            aria-labelledby="pills-contact-tab"
+          >
+            <p class="fs-6 text-muted">
+              {{ course.info_en }}
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  {% endif %}
+    <!-- Display a payment form -->
+    <!-- Display a payment form -->
+    <input type="hidden" value="{{public_key}}" id="publicKey">
+    <input type="hidden" value="{{course.id}}" id="courseId">
+    <div id="pay-rom">
+    <form id="payment-form">
+      {% csrf_token %}
+      <div id="payment-element">
+        <!--Stripe.js injects the Payment Element-->
+      </div>
+      <button id="submit">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">{% trans "Pay Now" %}</span>
+      </button>
+      <div id="payment-message" class="hidden"></div>
+    </form>
+  </div>
+
+  </div>
+  {% endblock %}

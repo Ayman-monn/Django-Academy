@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load my_filter %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<div class="product card mb-4">
+    <img
+      src="{{ course.image.url }}"
+      class="card-img-top"
+      alt="{{ course.name }}"
+    />
+    <div
+      class="card-img-overlay d-flex flex-column align-items-center justify-content-center"
+    >
+      <!-- <a class="btn btn-outline-light"                
+      data-url=""
+      onclick="cartUpdate(this)"
+        >{% trans 'Add To Cart' %}</a
+      > -->
+      <a class="btn btn-outline-light mt-2" href="{% url 'Course_detail' course.id%}"
+        >{% trans 'View' %} </a
+      >
+    </div>
+    {% if LANGUAGE_CODE == 'ar' %}
+    <div class="card-body">
+      <h6 class="text-muted"></h6>
+      <h6 class="card-title">{{ course.name }} </h6>
+      <strong class="fw-bold text-success">{{ course.price | currency }}</strong>
+    </div>
+    {% else %}
+    <div class="card-body">
+      <h6 class="text-muted"></h6>
+      <h6 class="card-title">{{ course.name_en }} </h6>
+      <strong class="fw-bold text-success">{{ course.price | currency }}</strong>
+    </div>
+    {% endif %}
+  </div>

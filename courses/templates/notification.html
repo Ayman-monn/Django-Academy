@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load my_filter %}
+{% block content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <ul class="list-group">
+                    {% for noti in notifications %}
+                    <a href="{% url 'Lesson' noti.lesson_id %}">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <p>{{ noti.from_user }} {% trans "mention you in lesson"%} {{noti.lesson.name}}.</p>
+                            <span class="badge badge-primary badge-pill text-secondary">
+                                {{noti.created_at}}
+                            </span>
+                        </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <ul class="list-group">
+                    {% for noti in notifications %}
+                    <a href="{% url 'Lesson' noti.lesson_id %}">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <p>{{ noti.from_user }} {% trans "mention you in lesson"%} {{noti.lesson.name_en}}.</p>
+                            <span class="badge badge-primary badge-pill text-secondary">
+                                {{noti.created_at}}
+                            </span>
+                        </li>
+                    </a>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

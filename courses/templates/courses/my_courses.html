@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load my_filter %}
+{% block content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            {% if LANGUAGE_CODE == 'ar' %}
+            <ul class="list-group">
+                    {% for paid in courses %}
+                    <a href="{% url 'Course_section' paid.course.id%}">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{paid.course.name}}
+                            <span class="badge badge-primary badge-pill text-secondary">{{paid.course.section_set.count}}</span>
+                        </li>
+                    </a>
+                        {% endfor %}
+                </ul>
+            {% else %}
+                <ul class="list-group">
+                    {% for paid in courses %}
+                    <a href="{% url 'Course_section' paid.course.id%}">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{paid.course.name_en}}
+                            <span class="badge badge-primary badge-pill text-secondary">{{paid.course.section_set.count}}</span>
+                        </li>
+                    </a>
+                        {% endfor %}
+                </ul>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

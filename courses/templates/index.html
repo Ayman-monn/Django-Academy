@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load i18n %}
+{% load my_filter %}
+
+
+
+    <div class="container my-5">
+      <section>
+        <div class="col-md-12 mb-5">
+          <p class="h1 text-center text-secondary"></p>
+        </div>
+        <div class="row mt-5">
+          {% for course in courses %}
+            <div class="col-md-3">
+              {% include 'common/product_card.html' with course=course%}
+            </div>
+            {% endfor %}
+        </div>
+      </section>
+    </div>
+{% endblock %}

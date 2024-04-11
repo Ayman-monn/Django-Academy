@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load my_filter %}
+{% block content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == 'ar' %}
+    <div class="card mb-3">
+        <div class="card-head">
+            <h2 class="m-3 ">
+                <a href="{% url 'MyCourses' %}">{{lesson.course.name}}</a>>
+                <a href="{% url 'Course_section' lesson.course.id %}">{{lesson.section.name}}</a>>
+                {{lesson.name}}
+            </h2>
+        </div>
+        <video class="card-img-top" width="600" height="600" controls>
+        <source src="{{ lesson.video.url }}" type="video/mp4">
+    </video> 
+        <div class="card-body">
+            <h5 class="card-title">{{ lesson.name }}</h5>
+            <p class="card-text">{{lesson.description}}</p>
+        </div>
+    </div>
+{% else %}
+    <div class="card mb-3">
+        <div class="card-head">
+            <h2 class="m-3 ">
+                <a href="{% url 'MyCourses' %}">{{lesson.course.name_en}}</a>>
+                <a href="{% url 'Course_section' lesson.course.id %}">{{lesson.section.name_en}}</a>>
+                {{lesson.name_en}}
+            </h2>
+        </div>
+        <video class="card-img-top" width="600" height="600" controls>
+        <source src="{{ lesson.video.url }}" type="video/mp4">
+    </video> 
+        <div class="card-body">
+            <h5 class="card-title">{{ lesson.name }}</h5>
+            <p class="card-text">{{lesson.description}}</p>
+        </div>
+    </div>
+{% endif %}
+
+<div class="container mb-5 mt-5">
+    <div class="card-header">
+    {% trans "Comments" %} {{lesson.comment_set.all.count}}
+    </div>
+    {% for comment in lesson.comment_set.all %}
+    <div class="card">
+        <div class="card-header">
+        {{comment.user.username}}
+        </div>
+        <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{ comment.body|safe }}</p>
+            <footer class="blockquote-footer">{% trans "Date" %}: {{comment.created_at|date:'D-m-Y'}}</footer>
+        </blockquote>
+        </div>
+    </div>
+    {% empty %}
+    <div class="card">
+        <div class="card-header">
+        <h3>No comment yet</h3>
+        </div>
+    </div>
+    {% endfor %}    
+</div>
+
+<!-- comment form  -->
+<div class="container mb-5 mt-5">
+
+<div class="card">
+    <form method="post" >
+        <input name="lid" type="hidden" value="{{ lesson.id }}">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <input type="submit"class="btn btn-primary btn-lg btn-block" value="{% trans "Comment" %}">
+        </div>
+    </form>
+</div>
+    </div>
+{% endblock content %}

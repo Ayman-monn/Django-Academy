@@ -1,0 +1,40 @@
+{% load i18n %}
+<div class="container mb-5 mt-5">
+    <div class="card-header">
+    {% trans "Comments" %} {{post.comment_set.all.count}}
+    </div>
+    {% for comment in post.comment_set.all %}
+    <div class="card">
+        <div class="card-header">
+        {{comment.user.username}}
+        </div>
+        <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{ comment.body }}</p>
+            <footer class="blockquote-footer">{% trans "Date" %}: {{comment.created_at|date:'D-m-Y'}}</footer>
+        </blockquote>
+        </div>
+    </div>
+    {% empty %}
+    <div class="card">
+        <div class="card-header">
+        <h3>No comment yet</h3>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="card">
+    <form method="post" action="{% url 'Comment_create' %}">
+        <div class="form-group">
+            {% csrf_token %}
+            <input type="hidden" value="{{post.id}}" name="post" />
+            <!-- <input type="text" name="body" placeholder="{% trans 'Write a comment' %}"/> -->
+            <textarea name='body' placeholder="{% trans "write a comment" %}" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+            <input type="submit"class="btn btn-primary btn-lg btn-block" value="{% trans "Comment" %}">
+        </div>
+    </form>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-11 12:48+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\blog\forms.py:15 .\blog\forms.py:32
+msgid "Title"
+msgstr "العنوان"
+
+#: .\blog\forms.py:16 .\blog\forms.py:33
+msgid "Content"
+msgstr "المحتوي"
+
+#: .\blog\forms.py:17 .\blog\forms.py:34
+msgid "Image"
+msgstr "أضف صورة"
+
+#: .\blog\templates\blog.html:12 .\blog\templates\parts\header.html:4
+msgid "Blog"
+msgstr "المدونة"
+
+#: .\blog\templates\parts\comments.html:4
+msgid "Comments"
+msgstr "التعليقات"
+
+#: .\blog\templates\parts\comments.html:14
+#: .\blog\templates\posts\post_detail.html:25
+#: .\blog\templates\posts\posts_list.html:15
+msgid "Date"
+msgstr "التاريخ"
+
+#: .\blog\templates\parts\comments.html:30
+msgid "Write a comment"
+msgstr "اكتب تعليقاً"
+
+#: .\blog\templates\parts\comments.html:31
+msgid "write a comment"
+msgstr "اكتب تعليقا"
+
+#: .\blog\templates\parts\comments.html:33
+msgid "Comment"
+msgstr "تعليق"
+
+#: .\blog\templates\parts\footer.html:32
+msgid "© 2022 All rights reseerved"
+msgstr "جميع الحقوق محفوظة"
+
+#: .\blog\templates\parts\header.html:12
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\blog\templates\parts\header.html:15
+msgid "My Posts"
+msgstr "منشوراتي"
+
+#: .\blog\templates\parts\header.html:22
+msgid "Profile"
+msgstr "الملف الشخصي"
+
+#: .\blog\templates\parts\header.html:26
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\blog\templates\parts\header.html:28
+msgid "Log out"
+msgstr "تسجيل الخروج"
+
+#: .\blog\templates\parts\header.html:35
+msgid "My Courses"
+msgstr "دوراتي"
+
+#: .\blog\templates\parts\header.html:40 .\blog\templates\parts\header.html:41
+msgid "Search"
+msgstr "بحث"
+
+#: .\blog\templates\posts\post_create.html:10
+msgid "Create"
+msgstr "انشاء"
+
+#: .\blog\templates\posts\post_detail.html:12
+#: .\blog\templates\posts\post_detail.html:15
+msgid "Edit"
+msgstr "تعديل"
+
+#: .\blog\templates\posts\post_detail.html:16
+msgid "Delete"
+msgstr "حذف"
+
+#: .\blog\templates\posts\post_detail.html:24
+#: .\blog\templates\posts\posts_list.html:11
+msgid "Author"
+msgstr "الكاتب"
+
+#: .\blog\templates\posts\post_detail.html:36
+msgid "Login to write a comment"
+msgstr "عليك تسجيل الدخول لكتابة تعليق"
+
+#: .\blog\templates\posts\post_update.html:10
+msgid "Update"
+msgstr "تعديل"
+
+#: .\blog\templates\posts\posts_list.html:4
+msgid "Write Post"
+msgstr "اكتب مقالا"
+
+#: .\blog\templates\posts\posts_list.html:18
+msgid "Show more"
+msgstr "اظهر المزيد"
+
+#: .\blog\templates\posts\posts_list.html:33
+#: .\blog\templates\posts\posts_list.html:37
+msgid "Previous"
+msgstr "السابق"
+
+#: .\blog\templates\posts\posts_list.html:42
+#: .\blog\templates\posts\posts_list.html:46
+msgid "Next"
+msgstr "التالي"

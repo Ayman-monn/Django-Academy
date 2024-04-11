@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load my_filter %}
+{% block content %}
+
+{% get_current_language as LANGUAGE_CODE %}
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+          {% if LANGUAGE_CODE == 'ar' %}
+          <div class="card-head">
+            <h2 class="m-3 ">
+                <a href="{% url 'MyCourses' %}">{% trans "My Courses" %}</a>>
+                {{ course_name }}
+            </h2>
+            </div>
+          <ul class="list-group">
+              {% for section in sections %}
+              <a href="{% url 'Course_section_lessons' section.id %}">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  {{section.name}}
+                  <span class="badge badge-primary badge-pill text-secondary">{{section.lesson_set.count}} {% trans "lessons" %}</span>
+              </li>
+              </a>
+              {% endfor %}
+          </ul>
+          {% else %}
+          <div class="card-head">
+            <h2 class="m-3 ">
+                <a href="{% url 'MyCourses' %}">{% trans "My Courses" %}</a>>
+                {{ course_name_en }}
+            </h2>
+            </div>
+          <ul class="list-group">
+              {% for section in sections %}
+              <a href="{% url 'Course_section_lessons' section.id %}">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  {{section.name_en}}
+                  <span class="badge badge-primary badge-pill text-secondary">{{section.lesson_set.count}} {% trans "lessons" %}</span>
+              </li>
+              </a>
+              {% endfor %}
+          </ul>
+            
+          {% endif %}
+        </div>
+      </div>
+ 
+  </div>
+
+{% endblock content %}

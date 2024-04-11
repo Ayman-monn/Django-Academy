@@ -1,0 +1,57 @@
+{% extends "blog.html" %}
+{% load i18n %}
+{% block body %}
+<a class="btn btn-primary btn-lg btn-block mt-4" href="{% url 'Post_create' %}">{% trans "Write Post" %}</a>
+    <div class="row mt-4">
+    {% for post in object_list %}
+    <div class="card mr-5" style="width: 18rem;">
+        <img src="{{post.image.url}}" class="card-img-top" alt="{{ post.id }}">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+            <h6>{% trans "Author" %}: {{post.author}}
+            </h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> {% trans "Date" %}: {{post.created_at|date:'D-m-Y'}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="{% url 'Post_detail' post.id %}" class="card-link">{% trans "Show more" %}</a>
+        </div>
+      </div> 
+      {% empty %}  
+        <h3>
+          No posts to show 
+        </h3>
+    {% endfor %}
+    </div>
+    {% if page_obj.paginator.count > 0 %}
+    <div class="d-flex justify-content-center bd-highlight mb-3">
+        <nav>
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{page_obj.previous_page_number}}">{% trans 'Previous' %}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">{% trans 'Previous' %}</a>
+                    </li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{page_obj.next_page_number}}">{% trans 'Next' %}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">{% trans 'Next' %}</a>
+                    </li>
+                {% endif %}
+
+
+            </ul>
+        </nav>
+    </div>
+{% endif %}
+{% endblock body %}
+
+

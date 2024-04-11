@@ -1,0 +1,38 @@
+{% extends "blog.html" %}
+{% load i18n %}
+{% block body %}
+<div class="card mr-auto" >
+    <img src="{{object.image.url}}" style="width: 100%; height: 300px;" class="card-img-top" alt="{{ object.id }}">
+    <div class="card-body">
+      <h5 class="card-title">{{object.title}}</h5>
+      <!-- Example single danger button -->
+    {% if user.id == object.author.id %}
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          {% trans "Edit" %}
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'Post_update' object.id %}">{% trans "Edit" %}</a>
+          <a class="dropdown-item" href="{% url 'Post_delete' object.id %}">{% trans "Delete" %}</a>
+        </div>
+      </div>
+      {% endif %}
+        
+
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{% trans "Author" %}: {{object.author}}</li>
+      <li class="list-group-item">{% trans "Date" %}: {{object.created_at|date:'D-m-Y'}}</li>
+    </ul>
+    <div class="card-body">
+        <p>
+            {{object.content|safe}}
+        </p>
+    </div>
+  </div> 
+  {% if user.is_authenticated %}
+  {% include "parts/comments.html" with post=object %}
+  {% else %}
+  <h1>{% trans "Login to write a comment" %}</h1>
+  {% endif %}
+{% endblock body %}
