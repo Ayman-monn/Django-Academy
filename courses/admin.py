@@ -66,16 +66,16 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(StudentCourses)
 class StudentCoursesAdmin(admin.ModelAdmin): 
-    list_display=['user', 'course']
+    list_display=['user', 'course', 'amount_paid']
     list_select_related = ['user', 'course']
     list_per_page = 30  
 
-    # def has_add_permission(self, request: HttpRequest) -> bool:
-    #     return False
-    # def has_change_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:
-    #     return False 
-    # def has_delete_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:
-    #     return False
+    def has_add_permission(self, request: HttpRequest) -> bool:
+        return False
+    def has_change_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:
+        return False 
+    def has_delete_permission(self, request: HttpRequest, obj: Any | None = ...) -> bool:
+        return False
 
 
 @admin.register(Notification) 
